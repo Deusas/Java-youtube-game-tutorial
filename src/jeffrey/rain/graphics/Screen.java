@@ -2,6 +2,8 @@ package jeffrey.rain.graphics;
 
 import java.util.Random;
 
+import jeffrey.rain.level.tile.Tile;
+
 public class Screen {
 
 	private int width, height;
@@ -38,6 +40,17 @@ public class Screen {
 				if (xp < 0 || xp >= width) continue;
 				pixels[(xp) + (yp) * width] = Sprite.grass.pixels[(x&15) + (y&15) * 16];
 			}
+		}
+	}
+	
+	public void renderTile(int xPos, int yPos, Tile tile) {
+		for (int y = 0; y < tile.sprite.SIZE; y++){
+			int yAbsolute = y + yPos;
+			for(int x = 0; x < tile.sprite.SIZE; x++){
+				int xAbsolute = x + xPos;
+				if(xAbsolute < 0 || xAbsolute >= width || yAbsolute < 0 || yAbsolute >= width) break;
+				pixels[xAbsolute + yAbsolute * width] = tile.sprite.pixels[x + y *tile.sprite.SIZE];
+ 			}
 		}
 	}
 }
