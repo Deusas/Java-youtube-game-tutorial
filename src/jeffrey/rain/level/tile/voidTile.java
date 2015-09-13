@@ -3,9 +3,9 @@ package jeffrey.rain.level.tile;
 import jeffrey.rain.graphics.Screen;
 import jeffrey.rain.graphics.Sprite;
 
-public class GrassTile extends Tile{
+public class voidTile extends Tile{
 
-	public GrassTile(Sprite sprite) {
+	public voidTile(Sprite sprite) {
 		super(sprite);
 	}
 }
